@@ -18,13 +18,16 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        vEditText = (EditText) findViewById(R.id.editText);
+        vEditText = findViewById(R.id.editText);
 
         game = new Game();
     }
 
     public void checkGuess(View view) {
-        int guess = Integer.getInteger(vEditText.getText().toString());
+
+        String editTextValue = vEditText.getText().toString();
+        int guess = Integer.parseInt(editTextValue);
+
         boolean correct = game.check(guess);
 
         Context context = getApplicationContext();
